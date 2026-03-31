@@ -16,12 +16,25 @@
             android:id="@+id/tvLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CAMPUSCONNECT"
-            android:textColor="@color/teal_primary"
+            android:text="CAMPUS"
+            android:textColor="@color/text_white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_top_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:text="CONNECT"
+            android:textColor="@color/teal_primary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_top_toTopOf="parent"
+            tools:layout_editor_absoluteY="-1dp" />
 
         <TextView
             android:id="@+id/tvCollegeName"
@@ -31,7 +44,8 @@
             android:textColor="@color/text_grey"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_top_toBottomOf="@id/tvLogo" />
+            app:layout_top_toBottomOf="@id/tvLogo"
+            tools:layout_editor_absoluteY="27dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
@@ -51,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:orientation="horizontal"
-            app:layout_top_toBottomOf="@id/tvCollegeName">
+            app:layout_constraintTop_toBottomOf="@id/tvCollegeName">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPosterboard"
@@ -82,20 +96,21 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             app:cardBackgroundColor="@color/card_bg"
             app:cardCornerRadius="24dp"
             app:layout_constraintTop_toBottomOf="@id/tabLayout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="705dp"
                 android:padding="16dp">
+                android:layout_border=""
 
                 <ImageView
                     android:id="@+id/ivPoster"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="220dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/trek_poster"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -137,6 +152,7 @@
                     android:id="@+id/tvClub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="Mountaineering Club of BMSCE"
                     android:textColor="@color/text_white"
                     android:textStyle="bold"
@@ -145,12 +161,14 @@
 
                 <TextView
                     android:id="@+id/tvDescription"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="First-years exclusive!! Join us on this amazing and therapeutic trek to the outskirts of Namma Bengaluru"
                     android:textColor="@color/text_grey"
                     android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvClub" />
 
                 <ImageView
@@ -163,12 +181,12 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDescription" />
 
                 <TextView
+                    android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:text="Sun, Jan 4, 2026"
                     android:textColor="@color/text_grey"
-                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/icDate"
                     app:layout_constraintStart_toEndOf="@id/icDate"
                     app:layout_constraintTop_toTopOf="@id/icDate" />
@@ -177,18 +195,18 @@
                     android:id="@+id/icTime"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:src="@drawable/ic_clock"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/icDate" />
 
                 <TextView
+                    android:id="@+id/tvTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:text="06:00 AM"
                     android:textColor="@color/text_grey"
-                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/icTime"
                     app:layout_constraintStart_toEndOf="@id/icTime"
                     app:layout_constraintTop_toTopOf="@id/icTime" />
@@ -197,18 +215,18 @@
                     android:id="@+id/icLocation"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:src="@drawable/ic_location"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/icTime" />
 
                 <TextView
+                    android:id="@+id/tvLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:text="Ramadevara Betta"
                     android:textColor="@color/text_grey"
-                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/icLocation"
                     app:layout_constraintStart_toEndOf="@id/icLocation"
                     app:layout_constraintTop_toTopOf="@id/icLocation" />
@@ -249,16 +267,17 @@
                     android:backgroundTint="@color/background"
                     android:text="REGISTER"
                     android:textColor="@color/text_white"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:cornerRadius="8dp"
                     app:layout_constraintTop_toBottomOf="@id/tagContainer"
                     app:strokeColor="@color/teal_primary"
-                    app:strokeWidth="1dp" />
+                    app:strokeWidth="1.5dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/btnRegister">
 
@@ -267,27 +286,26 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/background"
                         android:text="Instagram"
                         android:textColor="@color/text_white"
-                        app:icon="@drawable/ic_instagram" />
+                        app:icon="@drawable/ic_instagram"
+                        app:iconTint="@color/teal_primary" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnFeedback"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/background"
                         android:text="Feedback"
                         android:textColor="@color/text_white"
-                        app:icon="@drawable/ic_feedback" />
+                        app:icon="@drawable/ic_feedback"
+                        app:iconTint="@color/teal_primary" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
