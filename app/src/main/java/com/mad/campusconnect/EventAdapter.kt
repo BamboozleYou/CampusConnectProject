@@ -23,25 +23,25 @@ class EventAdapter(
 
     companion object {
         const val TYPE_HEADER = 0
-        const val TYPE_EVENT  = 1
+        const val TYPE_EVENT = 1
     }
 
     // --- Header ViewHolder ---
     inner class HeaderVH(view: View) : RecyclerView.ViewHolder(view) {
         val rvNews: RecyclerView = view.findViewById(R.id.rvNews)
-        val etSearch: EditText   = view.findViewById(R.id.etSearch)
+        val etSearch: EditText = view.findViewById(R.id.etSearch)
     }
 
     // --- Event ViewHolder ---
     class EventVH(view: View) : RecyclerView.ViewHolder(view) {
         val tvExclusiveTag: TextView = view.findViewById(R.id.tvExclusiveTag)
-        val tvStatus: TextView       = view.findViewById(R.id.tvStatus)
-        val tvPrice: TextView        = view.findViewById(R.id.tvPrice)
-        val tvTitle: TextView        = view.findViewById(R.id.tvEventTitle)
-        val tvDesc: TextView         = view.findViewById(R.id.tvEventDesc)
-        val tvDate: TextView         = view.findViewById(R.id.tvEventDate)
-        val tvTime: TextView         = view.findViewById(R.id.tvEventTime)
-        val llTags: LinearLayout     = view.findViewById(R.id.llTags)
+        val tvStatus: TextView = view.findViewById(R.id.tvStatus)
+        val tvPrice: TextView = view.findViewById(R.id.tvPrice)
+        val tvTitle: TextView = view.findViewById(R.id.tvEventTitle)
+        val tvDesc: TextView = view.findViewById(R.id.tvEventDesc)
+        val tvDate: TextView = view.findViewById(R.id.tvEventDate)
+        val tvTime: TextView = view.findViewById(R.id.tvEventTime)
+        val llTags: LinearLayout = view.findViewById(R.id.llTags)
     }
 
     override fun getItemViewType(position: Int) =
@@ -69,10 +69,18 @@ class EventAdapter(
 
             // Wire up search
             holder.etSearch.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     onSearchChanged(s.toString())
                 }
+
                 override fun afterTextChanged(s: Editable?) {}
             })
         } else if (holder is EventVH) {
@@ -86,11 +94,11 @@ class EventAdapter(
             }
 
             holder.tvStatus.text = event.status
-            holder.tvPrice.text  = event.price
-            holder.tvTitle.text  = event.title
-            holder.tvDesc.text   = event.description
-            holder.tvDate.text   = event.date
-            holder.tvTime.text   = event.time
+            holder.tvPrice.text = event.price
+            holder.tvTitle.text = event.title
+            holder.tvDesc.text = event.description
+            holder.tvDate.text = event.date
+            holder.tvTime.text = event.time
 
             // Tags
             holder.llTags.removeAllViews()
@@ -120,7 +128,18 @@ class EventAdapter(
     }
 
     fun updateList(newList: List<Event>) {
+        val oldSize = items.size
+        val newSize = newList.size
         items = newList
-        notifyDataSetChanged()
+
+        if (newSize == oldSize) {
+            notifyItemRangeChanged(1, newSize)
+        } else if (newSize > oldSize) {
+            notifyItemRangeChanged(1, oldSize)
+            notifyItemRangeInserted(oldSize + 1, newSize - oldSize)
+        } else {
+            notifyItemRangeChanged(1, newSize)
+            notifyItemRangeRemoved(newSize + 1, oldSize - newSize)
+        }
     }
 }
