@@ -262,7 +262,7 @@
                         android:textColor="@color/teal_primary" />
                 </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
+            <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRegister"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
