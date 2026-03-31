@@ -103,17 +103,20 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="705dp"
-                android:padding="16dp">
-                android:layout_border=""
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_content_border"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tabLayout">
 
                 <ImageView
                     android:id="@+id/ivPoster"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/trek_poster"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:src="@drawable/sample_event"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="40dp" />
 
                 <TextView
                     android:id="@+id/tvTitle"
@@ -176,7 +179,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_calendar"
+                    android:src="@drawable/ic_calender"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDescription" />
 
@@ -290,7 +293,10 @@
                         android:text="Instagram"
                         android:textColor="@color/text_white"
                         app:icon="@drawable/ic_instagram"
-                        app:iconTint="@color/teal_primary" />
+                        app:iconTint="@color/teal_primary"
+                        app:layout_constraintTop_toBottomOf="@id/tagContainer"
+                        app:strokeColor="@color/teal_primary"
+                        app:strokeWidth="1.5dp"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnFeedback"
@@ -301,7 +307,10 @@
                         android:text="Feedback"
                         android:textColor="@color/text_white"
                         app:icon="@drawable/ic_feedback"
-                        app:iconTint="@color/teal_primary" />
+                        app:iconTint="@color/teal_primary"
+                        app:layout_constraintTop_toBottomOf="@id/tagContainer"
+                        app:strokeColor="@color/teal_primary"
+                        app:strokeWidth="1.5dp"/>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
